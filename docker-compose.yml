@@ -1,0 +1,30 @@
+version: '3.8' # Docker Compose file format version
+
+services:
+  db:
+    image: mysql:8 # Use MySQL version 8
+    restart: always # Restart container if it crashes
+    environment:
+      MYSQL_ROOT_PASSWORD: secret # Root password for MySQL
+      MYSQL_DATABASE: hr_portal # Initial database name
+    volumes:
+      - db_data:/var/lib/mysql # Persist MySQL data across restarts. no space - will break syntax if it has
+    ports:
+      - "3306:3306" # Expose MySQL port for debugging (optional)
+
+  web:
+    build: . # Build the Rails app using Dockerfile in current directory
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -b 0.0.0.0" # Remove stale server PID file and start Rails server
+    volumes:
+      - .:/app # Mount local code into container for live development , no space - will break syntax if it has
+    ports:
+      - "3000:3000" # Expose Rails server port
+    depends_on:
+      - db # Ensure MySQL starts before Rails
+    environment:
+      DATABASE_HOST: db # Hostname of MySQL container
+      DATABASE_USERNAME: root # MYSQL username
+      DATABASE_PASSWORD: secret # MYSQL password
+    
+volumes:
+  db_data: # Named volume for MySQL data persistence
