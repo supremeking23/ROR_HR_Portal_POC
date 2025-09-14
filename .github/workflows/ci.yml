@@ -86,12 +86,16 @@ jobs:
           bundler-cache: true
 
       - name: Run tests
-        env:
-          RAILS_ENV: test
+        # env:
+        #   RAILS_ENV: test
           # DATABASE_URL: mysql2://127.0.0.1:3306/hr_portal
           # REDIS_URL: redis://localhost:6379/0
-        run: bin/rails db:test:prepare test test:system
+        # run: bin/rails db:test:prepare test test:system
+        run: bin/rails db:migrate RAILS_ENV=test
 
+      - name: Run all tests
+        run: bin/rails test
+        
       - name: Keep screenshots from failed system tests
         uses: actions/upload-artifact@v4
         if: failure()

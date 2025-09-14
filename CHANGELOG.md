@@ -13,7 +13,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Technical
 
-
+- [02](http://tickets.projectname.com/browse/PROJECTNAME-RRRR)
+Added Employee table
 - [01](http://tickets.projectname.com/browse/PROJECTNAME-RRRR)
 Add Changelog file and setup note
  

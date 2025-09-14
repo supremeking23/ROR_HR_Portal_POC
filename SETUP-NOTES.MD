@@ -4,14 +4,14 @@
 # devise documentation: https://github.com/heartcombo/devise
 
 # bundle add devise -- will add the gem on gemfile
-# rails generate devise: install -- will install the gem
+# bin/rails generate devise: install -- will install the gem
 
-# rails generate devise {Model} - will create a table on the database {Model name could User or something}
+# bin/rails generate devise {Model} - will create a table on the database {Model name could User or something}
 
 
 # docker-compose down --volumes
 # docker-compose build --no-cache
-# docker-compose up
+# 
 
 
 # docker-compose exec web rails db:migrate
@@ -19,3 +19,20 @@
 
 # linting
 # bundle exec rubocop --format clang
+
+# Creating employee model
+# bin/rails generate model Employee user: references firstname:string middlename:string lastname:string address1:text address2:text city:string, mobile_number:string employee_type:string, birthdate:date
+
+## run migration
+# docker-compose run web bin/rails db:migrate
+
+
+## Rollback the migration:
+## bin/rails db:rollback STEP=1
+
+### Since we are running everythin in docker, we need to add docker-compose run {service} - bin/rails
+## docker-compose run web bin/rails db:migrate
+
+## delete migration
+## bin/rails generate migration RemoveEmployeeTypeFromEmployees employee_type:string
+
