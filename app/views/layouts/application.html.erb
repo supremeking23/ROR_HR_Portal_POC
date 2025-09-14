@@ -24,5 +24,10 @@
 
   <body>
     <%= yield %>
+
+    <!-- Display flash messages like login success or failure -->
+<% flash.each do |key, message| %>
+  <div class="flash <%= key %>"><%= message %></div>
+<% end %>
   </body>
 </html>
