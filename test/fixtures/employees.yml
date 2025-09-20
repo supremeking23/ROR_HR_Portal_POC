@@ -1,0 +1,12 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: MyString
+  references: MyString
+  firstname: Ivan
+  middlename: MyString
+  lastname: Dev
+  employee_type_ref_id: one
+  birthdate: 2025-09-14
+
+
