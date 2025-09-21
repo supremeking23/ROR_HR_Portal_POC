@@ -1,0 +1,82 @@
+<h1>Hello, Employee crud here</h1>
+
+<form method="POST" action="<%= create_employee_path %>" id="create_employee">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <div>
+        <label for="firstname">Firstname</label>
+        <input type="text" name="employee[firstname]" id="firstname" value="" />
+    </div>
+    <div>
+        <label for="middlename">Middlname</label>
+        <input type="text" name="employee[middlename]" id="middlename" value="" />
+    </div>
+    <div>
+        <label for="lastname">Lastname</label>
+        <input type="text" name="employee[lastname]" id="lastname" value="" />
+    </div>
+        <div>
+        <label for="email">Email</label>
+        <input type="text" name="user[email]" id="email" value="" />
+    </div>
+    <div>
+        <label for="address1">Address 1</label>
+        <input type="text" name="employee[address1]" id="address1" value="" />
+    </div>
+    <div>
+        <label for="address2">Address 2</label>
+        <input type="text" name="employee[address2]" id="address2" value="" />
+    </div>
+     <div>
+        <label for="city">City</label>
+        <input type="text" name="employee[city]" id="city" value="" />
+    </div>
+    <div>
+        <label for="birthdate">Birthdate</label>
+        <input type="date" name="employee[birthdate]" id="birthdate" value="" />
+    </div>
+     <div>
+    <label for="employee_type">Employee Type</label>     
+        <select name="employee[employee_type_ref_id]">
+        <% @employee_types.each do |type| %>
+            <option value="<%= type.id %>"><%= type.name %></option>
+        <% end %>
+        </select>
+    </div>
+    <button type="submit">Create employee</button>
+</form>
+<% if @employee.errors.any? %>
+  <div class="error-messages">
+    <h2><%= pluralize(@employee.errors.count, "error") %> prevented this employee from being saved:</h2>
+    <ul>
+      <% @employee.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<h2>Employee List</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Type</th>
+            <th>Created At</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @employees.each do |employee| %>
+         <tr>
+            <td><%= employee.firstname %></td>
+            <td><%= employee.lastname %></td>
+            <!-- safe navigation operator, Only call this method if the object isn’t nil -->
+            <td><%= employee.user&.email %></td>
+            <td><%= employee.employee_type_ref&.name %></td>
+            <td><%= employee.created_at.strftime("%b %d, %Y") %></td>
+         </tr>   
+        <% end %>
+    </tbody>
+</table>

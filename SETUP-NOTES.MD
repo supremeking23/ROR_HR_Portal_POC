@@ -17,6 +17,8 @@
 # docker-compose exec web rails db:migrate
 
 
+
+
 # linting
 # bundle exec rubocop --format clang
 
@@ -36,3 +38,18 @@
 ## delete migration
 ## bin/rails generate migration RemoveEmployeeTypeFromEmployees employee_type:string
 
+## test users
+
+## ivan@test.com/Ivan123456
+
+
+## Rails customizable path -- Manual approach
+<!-- 
+    <select name="employee[employee_type_ref_id]">
+    <% @employee_types.each do |type| %>
+        <option value="<%= type.id %>"><%= type.name %></option>
+    <% end %>
+    </select> -->
+
+
+## docker-compose build --no-cache
