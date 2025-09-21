@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Technical
 
+- [03](http://tickets.projectname.com/browse/PROJECTNAME-RRRR)
+Create and Read Employee feature
 - [02](http://tickets.projectname.com/browse/PROJECTNAME-RRRR)
 Added Employee table
 - [01](http://tickets.projectname.com/browse/PROJECTNAME-RRRR)

@@ -29,4 +29,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  get "employees" => "employee#index", as: :employees
+  post "create_employee" => "employee#create", as: :create_employee
 end
