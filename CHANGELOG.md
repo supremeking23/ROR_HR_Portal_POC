@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Technical
 
+- [04](http://tickets.projectname.com/browse/PROJECTNAME-RRRR)
+Soft delete employee feature
 - [03](http://tickets.projectname.com/browse/PROJECTNAME-RRRR)
 Create and Read Employee feature
 - [02](http://tickets.projectname.com/browse/PROJECTNAME-RRRR)

@@ -1,5 +1,4 @@
 <h1>Hello, Employee crud here</h1>
-
 <form method="POST" action="<%= create_employee_path %>" id="create_employee">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <div>
@@ -57,7 +56,7 @@
 
 
 <h2>Employee List</h2>
-<table>
+<table id="employee-table" class="table">
     <thead>
         <tr>
             <th>Firstname</th>
@@ -65,18 +64,52 @@
             <th>Email</th>
             <th>Type</th>
             <th>Created At</th>
+            <th>Deactivate employee</th>
         </tr>
     </thead>
     <tbody>
         <% @employees.each do |employee| %>
-         <tr>
+         <tr data-employee-row-id="<%= employee.id %>">
             <td><%= employee.firstname %></td>
             <td><%= employee.lastname %></td>
             <!-- safe navigation operator, Only call this method if the object isn’t nil -->
             <td><%= employee.user&.email %></td>
             <td><%= employee.employee_type_ref&.name %></td>
             <td><%= employee.created_at.strftime("%b %d, %Y") %></td>
+            <td>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" id="deactivate-employee-button" data-bs-target="#deactivate-employee-modal" data-employee-id="<%= employee.id =%>">Deactivate</button>
+            </td>
+
          </tr>   
         <% end %>
     </tbody>
 </table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="deactivate-employee-modal" tabindex="-1" aria-labelledby="deactivate-employee-modal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirm Action</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form class="modal-body" method="POST" action="<%= delete_employee_path %>" id="delete_employee_form">
+        <%= hidden_field_tag :_method, :put %>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="employee_id" id="employee_id" value="">
+        Are you sure you want to deactivate this employee?
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-danger">Confirm</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+<%= javascript_include_tag "employee/delete_employee" %>

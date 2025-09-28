@@ -7,7 +7,8 @@ class EmployeeController < ApplicationController
         @employee_types = RefCode.where(code_type: "employee_type")
 
         # Loads all employee records, eager-loading associated user and type to avoid N+1 queries
-        @employees = Employee.includes(:employee_type_ref, :user).all
+        # .active is to retrieve all Employee that is currently active
+        @employees = Employee.active.includes(:employee_type_ref, :user).all
     end
 
     def create
@@ -39,6 +40,15 @@ class EmployeeController < ApplicationController
             @employee_types = RefCode.where(code_type: "employee_type")
             flash.now[:alert] = "User creation failed: #{user.errors.full_messages.join(', ')}"
             render :index, status: :unprocessable_entity
+        end
+    end
+
+    def soft_delete
+        @employee = Employee.find(params[:employee_id])
+        if @employee.update(is_active: 0)
+            render json: { message: "Employee deactivated successully." }, status: :ok
+        else
+            render json: { error: "Failed to deactivate employee." }, status: :unprocessable_content
         end
     end
 
