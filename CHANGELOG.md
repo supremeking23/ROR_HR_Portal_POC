@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Technical
 
+- [05](http://tickets.projectname.com/browse/PROJECTNAME-RRRR)
+Add bootstrap and Jquery
 - [04](http://tickets.projectname.com/browse/PROJECTNAME-RRRR)
 Soft delete employee feature
 - [03](http://tickets.projectname.com/browse/PROJECTNAME-RRRR)
