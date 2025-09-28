@@ -40,7 +40,7 @@
 
 ## test users
 
-## ivan@test.com/Ivan123456
+## ivan23@test.com/Ivan123456
 
 
 ## Rails customizable path -- Manual approach
@@ -53,3 +53,14 @@
 
 
 ## docker-compose build --no-cache
+
+## ls -l filename.rb
+## If you need to change ownership:
+## sudo chown ivan db/migrate/20250921152809_add_is_active_to_employees.rb
+
+
+
+
+rm -rf public/assets
+ivan@DESKTOP-518D3FS:~/projects/ROR_projects/hr_portal$ bin/rails assets:clobber
+bin/rails assets:precompile
