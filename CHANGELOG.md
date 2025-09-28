@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Technical
 
+- [06](http://tickets.projectname.com/browse/PROJECTNAME-RRRR)
+UI Uplift for login page
 - [05](http://tickets.projectname.com/browse/PROJECTNAME-RRRR)
 Add bootstrap and Jquery
 - [04](http://tickets.projectname.com/browse/PROJECTNAME-RRRR)
