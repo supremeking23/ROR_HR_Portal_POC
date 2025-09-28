@@ -1,0 +1,9 @@
+.card-hr {
+    border-left: 4px solid #007bff; /* Blue accent for HR branding */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+.logo-placeholder {
+    font-size: 32px;
+    color: hsl(211, 100%, 50%);
+    margin-bottom: 1rem;
+}
