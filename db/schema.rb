@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_14_145333) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_21_152809) do
   create_table "employees", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "user"
     t.string "references"
@@ -26,6 +26,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_14_145333) do
     t.datetime "updated_at", null: false
     t.integer "employee_type_ref_id"
     t.bigint "user_id", null: false
+    t.integer "is_active", default: 1
     t.index ["user_id"], name: "index_employees_on_user_id"
   end
 

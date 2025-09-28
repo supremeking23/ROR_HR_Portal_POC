@@ -19,15 +19,20 @@
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "jquery.min" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <%= render "partials/toasts" %>
     <%= yield %>
 
     <!-- Display flash messages like login success or failure -->
 <% flash.each do |key, message| %>
   <div class="flash <%= key %>"><%= message %></div>
 <% end %>
+
+  <%= javascript_include_tag "main" %>
+  <%= javascript_include_tag "bootstrap.min" %>
   </body>
 </html>

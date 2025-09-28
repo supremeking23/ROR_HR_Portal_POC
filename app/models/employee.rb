@@ -8,6 +8,9 @@ class Employee < ApplicationRecord
   # Validations to ensure key fields are present before saving
   validates :firstname, :lastname, :employee_type_ref_id, presence: true
 
+  # Reusable filter for model queries
+  scope :active, -> { where(is_active: 1) }
+
   # Returns the human-readable label for the employee type
   # Example: "Human Resources" instead of just "hr"
   def employee_type_label
