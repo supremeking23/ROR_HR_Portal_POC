@@ -1,0 +1,99 @@
+<div class="container-fluid py-4">
+  <h2 class="mb-4">HR Recruitment Dashboard</h2>
+
+  <!-- 🔢 KPI Cards -->
+  <div class="row g-4 mb-4">
+    <div class="col-md-3">
+      <div class="card text-white bg-success h-100">
+        <div class="card-body">
+          <h5 class="card-title">245</h5>
+          <p class="card-text">Total Applications This Month</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-white bg-primary h-100">
+        <div class="card-body">
+          <h5 class="card-title">58</h5>
+          <p class="card-text">Active Employees</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-white bg-info h-100">
+        <div class="card-body">
+          <h5 class="card-title">12</h5>
+          <p class="card-text">Open Job Postings</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-white bg-warning h-100">
+        <div class="card-body">
+          <h5 class="card-title">5</h5>
+          <p class="card-text">Upcoming Interviews</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- ⚡ Quick Actions -->
+    <div class="mb-4 col-md-4">
+      <h5>Quick Actions</h5>
+      <div class="d-flex flex-wrap gap-3">
+        <button type="button" class="btn btn-outline-primary"><i class="bi bi-person-plus me-1"></i> Add Employee</button>
+        <button type="button" class="btn btn-outline-success"><i class="bi bi-megaphone me-1"></i> Create Job Posting</button>
+        <button type="button" class="btn btn-outline-info"><i class="bi bi-search me-1"></i> Review Applications</button>
+        <button type="button" class="btn btn-outline-secondary"><i class="bi bi-bar-chart me-1"></i> View Reports</button>
+      </div>
+    </div>
+
+      <!-- 🔐 Admin Tools (Optional) -->
+
+    <div class="mb-4 col-md-4">
+      <h5>Admin Tools</h5>
+      <div class="d-flex flex-wrap gap-3">
+        <button type="button" class="btn btn-outline-dark"><i class="bi bi-person-gear me-1"></i> Manage Roles</button>
+        <button type="button" class="btn btn-outline-danger"><i class="bi bi-journal-text me-1"></i> View Audit Logs</button>
+        <button type="button" class="btn btn-outline-secondary"><i class="bi bi-gear me-1"></i> System Settings</button>
+      </div>
+    </div>
+
+    <!-- 📰 Recent Activity -->
+    <div class="mb-4 col-md-4">
+      <h5>Recent Activity</h5>
+      <%= render "partials/recent_activities" %>
+    </div>
+  </div>
+
+<!-- 📋 Active Job Postings -->
+  <div class="mb-4">
+    <h5>Active Job Postings</h5>
+    <%= render "partials/active_job_postings" %>
+  </div>
+
+  <!-- 🎉 Employee Highlights -->
+  <div class="mb-4">
+    <h5>Employee Highlights</h5>
+    <div class="row g-3">
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body">
+            <h6 class="card-title">🎂 Birthday Today</h6>
+            <p class="card-text">Happy birthday to Carla Mendoza (Finance Analyst)!</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body">
+            <h6 class="card-title">👋 New Hire</h6>
+            <p class="card-text">Welcome aboard, Miguel Tan (QA Engineer)!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

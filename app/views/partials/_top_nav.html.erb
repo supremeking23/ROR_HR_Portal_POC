@@ -1,0 +1,47 @@
+<% if user_signed_in? %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom px-3">
+  <div class="container-fluid justify-content-end">
+    <!-- 🕒 Last Login Info (optional) -->
+    <span class="navbar-text me-3 text-muted small">
+      Last login: current_user.last_sign_in_at.strftime("%b %d, %Y %I:%M %p") if current_user
+    </span>
+
+    <!-- 🔔 Notifications (optional placeholder) -->
+    <button class="btn btn-outline-secondary me-3 position-relative">
+      <i class="bi bi-bell"></i>
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        3
+        <span class="visually-hidden">unread messages</span>
+      </span>
+    </button>
+
+    <!-- 🌗 Theme Toggle -->
+    <button class="btn btn-outline-dark me-3" id="themeToggle">
+      <i class="bi bi-moon"></i>
+    </button>
+
+    <!-- 👤 Profile Dropdown -->
+    <div class="dropdown me-3">
+      <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-person-circle me-1"></i>
+        <%= current_user.email if current_user %>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li>
+        <% if user_signed_in? %>
+          <form method="post" action="<%= destroy_user_session_path %>">
+            <input type="hidden" name="_method" value="delete">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <button type="submit">Logout</button>
+          </form>
+        <% end %>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+<% end %>

@@ -1,0 +1,42 @@
+<h2>Register for HR Portal</h2>
+
+<% if resource && resource.errors.any? %>
+  <div class="error-messages">
+    <h3>Registration failed:</h3>
+    <ul>
+      <% resource.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<!-- Form posts to Devise's registration#create action -->
+<form method="post" action="/register">
+  <!-- CSRF token for security -->
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <!-- Email field -->
+  <div>
+    <label for="email">Email</label><br>
+    <input type="email" name="user[email]" id="email" required>
+  </div>
+
+  <!-- Password field -->
+  <div>
+    <label for="password">Password</label><br>
+    <input type="password" name="user[password]" id="password" required>
+  </div>
+
+  <!-- Password confirmation -->
+  <div>
+    <label for="password_confirmation">Confirm Password</label><br>
+    <input type="password" name="user[password_confirmation]" id="password_confirmation" required>
+  </div>
+
+  <!-- Submit button -->
+  <div>
+    <button type="submit">Register</button>
+  </div>
+</form>

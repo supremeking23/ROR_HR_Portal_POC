@@ -1,4 +1,4 @@
-version: '3.8' # Docker Compose file format version
+# version: '3.8' # Docker Compose file format version
 
 services:
   db:
@@ -15,6 +15,7 @@ services:
   web:
     build: . # Build the Rails app using Dockerfile in current directory
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -b 0.0.0.0" # Remove stale server PID file and start Rails server
+    # command: bash -c "rm -f tmp/pids/server.pid && ./bin/dev"
     volumes:
       - .:/app # Mount local code into container for live development , no space - will break syntax if it has
     ports:
@@ -22,9 +23,14 @@ services:
     depends_on:
       - db # Ensure MySQL starts before Rails
     environment:
+      RAILS_ENV: development # Set Rails environment to development
       DATABASE_HOST: db # Hostname of MySQL container
       DATABASE_USERNAME: root # MYSQL username
       DATABASE_PASSWORD: secret # MYSQL password
-    
+
+    develop:
+      watch:
+        - action: rebuild
+          path: .
 volumes:
   db_data: # Named volume for MySQL data persistence

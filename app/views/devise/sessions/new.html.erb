@@ -1,0 +1,50 @@
+
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag "login", media: "all" %>
+<% end %>
+
+
+
+<div class="container">
+	<div class="row justify-content-center align-items-center" style="min-height: 100vh;">
+		<div class="col-md-6 col-lg-4">
+			<div class="card card-hr">
+                    <div class="card-body p-4">
+                        <!-- HR Logo Placeholder (replace with actual logo) -->
+                        <div class="text-center logo-placeholder">
+                            <i class="fas fa-users"></i> <!-- Font Awesome icon for HR/users -->
+                        </div>
+                        <h2 class="text-center mb-4 text-primary">HR Portal Login</h2>
+                        <p class="text-center text-muted mb-4">Access employee management, payroll, and HR resources securely.</p>
+                        <form method="post" action="/login">
+							<!-- Rails CSRF protection token -->
+							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                            <div class="mb-3">
+                                <label for="username" class="form-label"><i class="fas fa-user me-1"></i>Email</label>
+								<input type="email" class="form-control" name="user[email]" id="email" placeholder="Enter your Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label"><i class="fas fa-lock me-1"></i>Password</label>
+								<input type="password" name="user[password]" class="form-control" id="password" required>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="remember">
+                                <label class="form-check-label" for="remember">Remember me</label>
+                            </div>
+                            <div class="d-grid mb-3">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-sign-in-alt me-2"></i>Login
+                                </button>
+                            </div>
+                            <div class="text-center">
+                                <a href="#" class="text-primary">Forgot Password?</a>
+                            </div>
+                        </form>
+                        <div class="text-center mt-3">
+                            <small class="text-muted">Need help? Contact HR Support at <a href="mailto:hr@company.com" class="text-primary">hr@company.com</a></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+hr:
+  name: Human Resource
+  code: hr
+  code_type: employee_type
+
+it:
+  name: Information Technology
+  code: it
+  code_type: employee_type

@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+  get "dashboard/index"
+  devise_for :users, skip: [ :sessions, :registrations ] # Skip login & registration routes
+
+  # Define clean  paths
+  as :user do
+    # login/logut
+    get "login", to: "devise/sessions#new", as: :new_user_session # Login page
+    post "login", to: "devise/sessions#create", as: :user_session # Login form submission
+
+    # Registration routes
+    get "register", to: "devise/registrations#new", as: :new_user_registration
+    post "register", to: "devise/registrations#create", as: :user_registration
+
+    delete "logout", to: "devise/sessions#destroy", as: :destroy_user_session
+  end
+
+  get "dashboard", to: "dashboard#index", as: :dashboard
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -11,4 +29,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  get "employees" => "employee#index", as: :employees
+  post "create_employee" => "employee#create", as: :create_employee
+  put "delete_employee" => "employee#soft_delete", as: :delete_employee
 end

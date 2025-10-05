@@ -17,12 +17,37 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "_reset", media: "all" %>
+    <%= stylesheet_link_tag "bootstrap.min", media: "all" %>
+    <%= stylesheet_link_tag "main", media: "all" %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <%= javascript_include_tag "jquery.min" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "partials/top_nav" %>
+    <div class="d-flex" style="min-height: 100vh;">
+      <% if user_signed_in? %>
+        <!-- Sidebar -->
+        <%= render "partials/side_nav" %>
+      <% end %>
+      <!-- Main Content -->
+      <main class="flex-grow-1 overflow-auto p-4">
+      <%= yield %>
+      </main>
+    </div>
+
+    <%= render "partials/toasts" %>
+
+    <!-- Display flash messages like login success or failure -->
+<% flash.each do |key, message| %>
+  <div class="flash <%= key %>"><%= message %></div>
+<% end %>
+
+  <%= javascript_include_tag "main" %>
+  <%= javascript_include_tag "bootstrap.min" %>
   </body>
 </html>
