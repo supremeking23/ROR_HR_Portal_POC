@@ -5,9 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
  
-## [Unreleased] - yyyy-mm-dd
+## [UnRelease] - YYYY-MM-DD
 
-## [0.0.1] - (TBC)
+## [0.0.2] - (TBC)
+ 
+### Feature
+
+### Technical
+
+## [Release] - 2025-10-5
+
+## [0.0.1] - (2025-10-5)
  
 ### Feature
 
