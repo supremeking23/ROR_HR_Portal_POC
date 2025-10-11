@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_21_152809) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_05_143623) do
   create_table "employees", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "user"
     t.string "references"
@@ -28,6 +28,25 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_21_152809) do
     t.bigint "user_id", null: false
     t.integer "is_active", default: 1
     t.index ["user_id"], name: "index_employees_on_user_id"
+  end
+
+  create_table "recruitment_managers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "recruitment_id", null: false
+    t.bigint "employee_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_recruitment_managers_on_employee_id"
+    t.index ["recruitment_id"], name: "index_recruitment_managers_on_recruitment_id"
+  end
+
+  create_table "recruitments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.text "description"
+    t.integer "job_position_id"
+    t.integer "vacancies"
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "ref_codes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -51,4 +70,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_21_152809) do
   end
 
   add_foreign_key "employees", "users"
+  add_foreign_key "recruitment_managers", "employees"
+  add_foreign_key "recruitment_managers", "recruitments"
 end

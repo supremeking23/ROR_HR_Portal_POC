@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [UnRelease] - YYYY-MM-DD
 
 ## [0.0.2] - (TBC)
+
+### Technical
+
+- [06](http://tickets.projectname.com/browse/PROJECTNAME-RRRR)
+Add job posting model for recruitment module
+
  
 ### Feature
 
