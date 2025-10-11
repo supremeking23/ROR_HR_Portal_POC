@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  job_position_id: 1
+  vacancies: 1
+  recruitment_manager_ids: 1
+  start_date: 2025-10-05
+  end_date: 2025-10-05
+
+two:
+  description: MyText
+  job_position_id: 1
+  vacancies: 1
+  recruitment_manager_ids: 1
+  start_date: 2025-10-05
+  end_date: 2025-10-05
