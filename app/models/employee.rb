@@ -16,4 +16,11 @@ class Employee < ApplicationRecord
   def employee_type_label
     employee_type_ref&.name
   end
+
+  def self.recruitment_managers
+    includes(:employee_type_ref).where(employee_type_ref_id: 3) # Assuming 3 is the ID for recruitment managers
+    .map do |emp|
+      { id: emp.id, fullname: "#{emp.firstname} #{emp.lastname}" }
+    end
+  end
 end

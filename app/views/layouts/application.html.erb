@@ -23,7 +23,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <%= stylesheet_link_tag "coreui.min", media: "all" %>
     <%= javascript_include_tag "jquery.min" %>
+    <%= javascript_include_tag "bootstrap.min" %>
+    <%= javascript_include_tag "coreui.bundle.min" %>
     <%= javascript_importmap_tags %>
   </head>
 
@@ -36,11 +39,12 @@
       <% end %>
       <!-- Main Content -->
       <main class="flex-grow-1 overflow-auto p-4">
+      <%= render "partials/toasts" %>
       <%= yield %>
       </main>
     </div>
 
-    <%= render "partials/toasts" %>
+    
 
     <!-- Display flash messages like login success or failure -->
 <% flash.each do |key, message| %>
@@ -48,6 +52,5 @@
 <% end %>
 
   <%= javascript_include_tag "main" %>
-  <%= javascript_include_tag "bootstrap.min" %>
   </body>
 </html>

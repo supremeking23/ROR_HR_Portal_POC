@@ -1,0 +1,51 @@
+Recruitment
+    - dashboard
+    - Add recruitment - (meaning add a job post)
+        job post fields (based from horilla)
+            - description {text filed}
+            - job postion - {relationship with ref_code for job position key}
+            - vacancies - number of positions {int}
+            - recruitment_manager {array, must be linked to employee table who is an recruitment manager}
+            - start date
+            - end date , these are the date where the job posting is active
+
+        
+    Stages
+        - a link table for job posting table. This is the stages in recruitment, like , initial screening, Aptitude test, technical exam, technical interview, etc.
+        - I think this table should be dynamic, we can't put a technical interview stage for a position that doesn't required that.
+        - table columns:
+            - recruitment_id
+            - stage_name
+            - stage_type {dropdown, we can store the value of ref_code } Stage type could be Intial interview, technical interview, hired stage
+            - stage manager {I think this could be use for who is/ are conducting the interview } -- dropdown, value must be from employee table
+
+
+
+- Need a candidate table ?
+    - columns can be:
+        - firstname
+        - middlename
+        - lastnamne
+        - email
+        - phone
+        - profile (need to store on s3 or similar)
+        - resume {need to store on s3 or similar}
+        - address1
+        - address2
+        - city
+        - country
+        - gender
+        - portfolio
+        - open recruitment (want position is he/she applying for ,must be reference to the recruitment table)
+
+
+Adding a candidate has 2 options:
+    1. Adding a candidate for each stage of recruitment
+    2. Via application form (candidate may enter their information on a form)
+
+
+
+Add note functionality 
+    can be use on feedback to the candidate.
+
+Once a candidate has been hired, he will be added to the Onboarding view, list of Hired candidates

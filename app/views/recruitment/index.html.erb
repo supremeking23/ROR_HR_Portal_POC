@@ -1,0 +1,63 @@
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" id="add-recruitment" data-bs-target="#add-recruitment-modal">Add a recruitment</button>
+
+
+<!-- Modal -->
+<div class="modal fade" id="add-recruitment-modal" tabindex="-1" aria-labelledby="add-recruitment-modal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add a recruitment</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form class="modal-body" method="POST" action="<%= create_recruitment_path %>" id="add_recruitment_form">
+        <%= hidden_field_tag :_method, :post %>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+        <div class="mb-3">
+            <label for="position" class="form-label">Position</label>
+            <select class="form-select" id="job_position_id" name="job_position_id" required>
+                <option value="" disabled selected>Select position</option>
+                <% @job_positions.each do |position| %>
+                    <option value="<%= position.id %>"><%= position.name %></option>
+                <% end %>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="department" class="form-label">Number of vacancies</label>
+            <input type="number" class="form-control" id="vacancies" name="vacancies" required max="5">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="recruitment" class="form-label">Recruitment Managers</label>
+            <select class="form-multi-select" aria-label="multiple select example" id="recruitment-managers" name="recruitment_managers[]" required multiple>
+                <% @recruitment_managers.each do |manager| %>
+                    <option value="<%= manager[:id] %>"><%= manager[:fullname] %></option>
+                <% end %>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="start-date" class="form-label">Start date</label>
+            <input type="date" class="form-control" id="start-date" name="start_date" required>  
+        </div>
+        <div class="mb-3">
+            <label for="end-date" class="form-label">End date</label>
+            <input type="date" class="form-control" id="end-date" name="end_date" required>  
+        </div>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-danger">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<%= javascript_include_tag "recruitment/add_recruitment" %>
