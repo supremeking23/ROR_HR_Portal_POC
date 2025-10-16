@@ -33,4 +33,8 @@ Rails.application.routes.draw do
   get "employees" => "employee#index", as: :employees
   post "create_employee" => "employee#create", as: :create_employee
   put "delete_employee" => "employee#soft_delete", as: :delete_employee
+
+  get "recruitments" => "recruitment#index", as: :recruitments
+  post "create_recruitment" => "recruitment#create", as: :create_recruitment
+  put "delete_recruitment" => "recruitment#soft_delete", as: :delete_recruitment
 end

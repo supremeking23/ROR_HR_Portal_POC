@@ -64,3 +64,13 @@
 rm -rf public/assets
 ivan@DESKTOP-518D3FS:~/projects/ROR_projects/hr_portal$ bin/rails assets:clobber
 bin/rails assets:precompile
+
+
+
+
+Generating new Controller:
+https://guides.rubyonrails.org/command_line.html#bin-rails-generate:~:text=The%20controller%20generator%20is%20expecting%20parameters%20in%20the%20form%20of%20generate%20controller%20ControllerName%20action1%20action2.%20Let%27s%20make%20a%20Greetings%20controller%20with%20an%20action%20of%20hello%2C%20which%20will%20say%20something%20nice%20to%20us.
+
+Core UI for multi select dropdown:
+
+https://coreui.io/bootstrap/docs/forms/multi-select/
