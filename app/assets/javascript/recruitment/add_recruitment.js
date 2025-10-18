@@ -1,6 +1,6 @@
 $(function() {
     $("body")
-        .on("submit", "#add_recruitment_form", addRecruitment)
+        .on("submit", "#add_recruitment_form", addRecruitment);
 
 });
 
@@ -16,6 +16,7 @@ function addRecruitment(){
         addRecruitmenteModal.find(".close").click();
         toastElement.find(".toast-body").text(response.message);
         toast.show();
+        loadRecruitments();
     }).fail(function(xhr, status, error){
         console.error("Error", error);
 

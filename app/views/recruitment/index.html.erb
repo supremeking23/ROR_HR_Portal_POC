@@ -1,4 +1,9 @@
 
+
+<% content_for :title, "Recruitment" %>
+
+<%= render "partials/recruitments" %>
+
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" id="add-recruitment" data-bs-target="#add-recruitment-modal">Add a recruitment</button>
 
 
@@ -61,3 +66,4 @@
 
 
 <%= javascript_include_tag "recruitment/add_recruitment" %>
+<%= javascript_include_tag "recruitment/load_recruitments" %>

@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Feature
 
+- [08](http://tickets.projectname.com/browse/PROJECTNAME-RRRR)
+display recruitments
 - [07](http://tickets.projectname.com/browse/PROJECTNAME-RRRR)
 create form for creating recruitments
 
