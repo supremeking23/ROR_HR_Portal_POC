@@ -37,4 +37,7 @@ Rails.application.routes.draw do
   get "recruitments" => "recruitment#index", as: :recruitments
   post "create_recruitment" => "recruitment#create", as: :create_recruitment
   put "delete_recruitment" => "recruitment#soft_delete", as: :delete_recruitment
+
+  # JSON endpoints
+  get "recruitments/load_recruitments" => "recruitment#load_recruitments"
 end
