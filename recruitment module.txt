@@ -8,6 +8,10 @@ Recruitment
             - recruitment_manager {array, must be linked to employee table who is an recruitment manager}
             - start date
             - end date , these are the date where the job posting is active
+        
+        - additional features:
+            - add pagination
+            - rendered data via ajax request. (JSON rendering)
 
         
     Stages
