@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   before_action :set_current_employee
   helper_method :current_employee
 
+  # pagination module
+  include Pagy::Backend
 
   def set_current_user
     Current.user = current_user  # Devise's current_user

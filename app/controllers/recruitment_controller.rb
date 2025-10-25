@@ -9,11 +9,14 @@ class RecruitmentController < ApplicationController
     # Fetch all recruitments, eager-loading associated recruitment_managers, employees, and job_position_ref
     # This avoids N+1 queries by loading everything in one go
     # recruitments are ordered by creation date, most recent first, and limited to 5 records
-    @recruitments = Recruitment.includes(:job_position_ref, recruitment_managers: :employee).all.order(created_at: :desc).limit(5)
+    # @recruitments = Recruitment.includes(:job_position_ref, recruitment_managers: :employee).all.order(created_at: :desc).limit(5)
+    @pagy, @recruitments = pagy(Recruitment.includes(:job_position_ref, recruitment_managers: :employee).all.order(created_at: :desc))
 
     # Render JSON response with selected attributes and nested associations
     render json: {
         status: "success",
+        pagy: pagy_metadata(@pagy),
+        # pagination: "2 of 10", # Placeholder for pagination info
         recruitments: @recruitments.map do |r|
         {
             id: r.id,

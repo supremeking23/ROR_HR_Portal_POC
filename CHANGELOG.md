@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Feature
 
+- [09](http://tickets.projectname.com/browse/PROJECTNAME-RRRR)
+Add pagination on recruitment table using pagy gem
 - [08](http://tickets.projectname.com/browse/PROJECTNAME-RRRR)
 display recruitments
 - [07](http://tickets.projectname.com/browse/PROJECTNAME-RRRR)
